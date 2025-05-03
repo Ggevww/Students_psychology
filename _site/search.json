@@ -49,13 +49,6 @@
     "text": "Conclusion\nConclusion This analysis highlights critical connections between academic, lifestyle, and mental health factors influencing depression among students. Notably, higher CGPA ranges (8-9 and 9-10) correlate with increased depression rates, with around 60% of students in these groups reporting symptoms, suggesting that academic pressure may exacerbate mental health challenges. Additionally, factors like inadequate sleep, financial stress, and suicidal thoughts significantly contribute to higher depression rates, underscoring the need for targeted interventions. These insights emphasize the importance of balanced academic demands, financial support, and mental health resources to improve student well-being."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
-  },
-  {
     "objectID": "Sources.html",
     "href": "Sources.html",
     "title": "Sources",
@@ -63,10 +56,10 @@
     "text": "This project analyzes the mental health and depression-related data of students, with a specific focus on understanding the prevalence and potential contributing factors of depression within this group. The dataset used for this analysis was sourced from Kaggle, a popular platform for data science and machine learning projects.\nThe data consists of responses from students regarding their mental health, academic experiences, social interactions, and personal well-being. It serves as a valuable resource for exploring the intersections of academic pressures, social influences, and mental health, which are crucial for understanding and addressing student depression.\nPlease note that while this dataset provides insightful information, it is important to approach the findings with the understanding that the data represents self-reported information and may not fully capture all dimensions of mental health within the student population.\nFor more details, you can access the dataset here"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Students-psychology",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "hello hello hello"
+    "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
   }
 ]
