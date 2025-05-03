@@ -3,7 +3,6 @@ title: "Students-psychology"
 format:
   html:
     echo: false
-    
 ---
 ## Exploring Student Mental Health: A Data Analysis Project
 This analysis examines the complex relationships between various psychological and demographic factors affecting student mental health. Using a dataset of 27,901 student records, we explore how different aspects of student life correlate with depression and other mental health indicators.

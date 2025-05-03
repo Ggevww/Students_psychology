@@ -56,13 +56,6 @@
     "text": "This project analyzes the mental health and depression-related data of students, with a specific focus on understanding the prevalence and potential contributing factors of depression within this group. The dataset used for this analysis was sourced from Kaggle, a popular platform for data science and machine learning projects.\nThe data consists of responses from students regarding their mental health, academic experiences, social interactions, and personal well-being. It serves as a valuable resource for exploring the intersections of academic pressures, social influences, and mental health, which are crucial for understanding and addressing student depression.\nPlease note that while this dataset provides insightful information, it is important to approach the findings with the understanding that the data represents self-reported information and may not fully capture all dimensions of mental health within the student population.\nFor more details, you can access the dataset here"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
-  },
-  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Students-psychology",
@@ -82,5 +75,12 @@
     "title": "Students-psychology",
     "section": "About the Correlation Analysis",
     "text": "About the Correlation Analysis\nThe heatmap visualization reveals several important patterns in our dataset:\nStrongest Correlations: This correlation matrix visualizes the relationships between various personal and academic factors, including CGPA, Family History of Mental Illness, Work/Study Hours, Dietary Habits, Financial Stress, Academic Pressure, Depression, Suicidal Thoughts, Study Satisfaction, Sleep Duration, City, Age, Degree, Work Pressure, Job Satisfaction, and Profession. Each dot represents a correlation coefficient, with colors ranging from blue (negative correlation) to orange (positive correlation).\nNotable insights include a strong positive correlation between Depression and Academic Pressure (0.47), and between Work Pressure and Job Satisfaction (0.77). Age and Degree also show a moderate positive correlation (0.42). Conversely, Age have a negative correlation with suicidal thoughts and depression (-0.11). Gender exhibits minimal correlations across all factors, with the highest being a weak 0.04 with CGPA. This interactive heatmap provides a clear overview of how these variables interrelate, helping us identify key patterns and connections.\nMethodology Notes Our analysis employed Pearson correlation coefficients to measure linear relationships between variables. Categorical variables were appropriately transformed for inclusion in the correlation matrix. The hierarchical clustering in our heatmap groups variables with similar correlation patterns together, making broader patterns more apparent.\nThis visualization serves as a starting point for deeper investigation into specific relationships, particularly those involving depression risk factors. Future analyses could explore mediation effects and interaction terms between these variables."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
   }
 ]
