@@ -115,8 +115,15 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#exploring-student-mental-health-a-data-analysis-project" id="toc-exploring-student-mental-health-a-data-analysis-project" class="nav-link active" data-scroll-target="#exploring-student-mental-health-a-data-analysis-project">Exploring Student Mental Health: A Data Analysis Project</a></li>
+  <li><a href="#about-the-correlation-analysis" id="toc-about-the-correlation-analysis" class="nav-link" data-scroll-target="#about-the-correlation-analysis">About the Correlation Analysis</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -140,8 +147,29 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="exploring-student-mental-health-a-data-analysis-project" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-student-mental-health-a-data-analysis-project">Exploring Student Mental Health: A Data Analysis Project</h2>
+<p>This analysis examines the complex relationships between various psychological and demographic factors affecting student mental health. Using a dataset of 27,901 student records, we explore how different aspects of student life correlate with depression and other mental health indicators.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1344"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="about-the-correlation-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="about-the-correlation-analysis">About the Correlation Analysis</h2>
+<p>The heatmap visualization reveals several important patterns in our dataset:</p>
+<p><strong>Strongest Correlations</strong>: This correlation matrix visualizes the relationships between various personal and academic factors, including CGPA, Family History of Mental Illness, Work/Study Hours, Dietary Habits, Financial Stress, Academic Pressure, Depression, Suicidal Thoughts, Study Satisfaction, Sleep Duration, City, Age, Degree, Work Pressure, Job Satisfaction, and Profession. Each dot represents a correlation coefficient, with colors ranging from blue (negative correlation) to orange (positive correlation).</p>
+<p>Notable insights include a strong positive correlation between Depression and Academic Pressure (0.47), and between Work Pressure and Job Satisfaction (0.77). Age and Degree also show a moderate positive correlation (0.42). Conversely, Age have a negative correlation with suicidal thoughts and depression (-0.11). Gender exhibits minimal correlations across all factors, with the highest being a weak 0.04 with CGPA. This interactive heatmap provides a clear overview of how these variables interrelate, helping us identify key patterns and connections.</p>
+<p><strong>Methodology Notes</strong> Our analysis employed Pearson correlation coefficients to measure linear relationships between variables. Categorical variables were appropriately transformed for inclusion in the correlation matrix. The hierarchical clustering in our heatmap groups variables with similar correlation patterns together, making broader patterns more apparent.</p>
+<p>This visualization serves as a starting point for deeper investigation into specific relationships, particularly those involving depression risk factors. Future analyses could explore mediation effects and interaction terms between these variables.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -236,7 +264,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp('/' + window.location.host + '/');
+      var filterRegex = new RegExp("https:\/\/Ggevww\.github\.io\/Students_psychology\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
