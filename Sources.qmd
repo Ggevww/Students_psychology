@@ -1,0 +1,12 @@
+---
+title: "Sources"
+format: html
+---
+
+This project analyzes the mental health and depression-related data of students, with a specific focus on understanding the prevalence and potential contributing factors of depression within this group. The dataset used for this analysis was sourced from Kaggle, a popular platform for data science and machine learning projects.
+
+The data consists of responses from students regarding their mental health, academic experiences, social interactions, and personal well-being. It serves as a valuable resource for exploring the intersections of academic pressures, social influences, and mental health, which are crucial for understanding and addressing student depression.
+
+Please note that while this dataset provides insightful information, it is important to approach the findings with the understanding that the data represents self-reported information and may not fully capture all dimensions of mental health within the student population.
+
+For more details, you can access the dataset [here](https://www.kaggle.com/datasets/adilshamim8/student-depression-dataset/data)

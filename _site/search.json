@@ -1,0 +1,72 @@
+[
+  {
+    "objectID": "Data_analysis.html",
+    "href": "Data_analysis.html",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "In today’s fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.\nThe primary goal of this analysis is to understand how various personal, academic, and lifestyle factors contribute to depression among students. By exploring relationships between variables such as sleep duration, CGPA, financial stress, and suicidal thoughts, we aim to identify key areas that may require attention for mental health support and intervention programs.\nThrough a combination of descriptive statistics, visual exploration, and correlation analysis, this study provides insights that can help educators, counselors, and policymakers develop better strategies to support student mental health and well-being."
+  },
+  {
+    "objectID": "Data_analysis.html#introduction",
+    "href": "Data_analysis.html#introduction",
+    "title": "Data Analysis",
+    "section": "",
+    "text": "In today’s fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.\nThe primary goal of this analysis is to understand how various personal, academic, and lifestyle factors contribute to depression among students. By exploring relationships between variables such as sleep duration, CGPA, financial stress, and suicidal thoughts, we aim to identify key areas that may require attention for mental health support and intervention programs.\nThrough a combination of descriptive statistics, visual exploration, and correlation analysis, this study provides insights that can help educators, counselors, and policymakers develop better strategies to support student mental health and well-being."
+  },
+  {
+    "objectID": "Data_analysis.html#demographic-analysis",
+    "href": "Data_analysis.html#demographic-analysis",
+    "title": "Data Analysis",
+    "section": "Demographic Analysis",
+    "text": "Demographic Analysis\nUnderstanding the demographic distribution of the students provides valuable context for interpreting the results of the study. The following aspects were analyzed:\n\nGender Distribution: The proportion of male and female students was examined.\nAge Distribution: The age range and average age of the students were explored.\nCity Distribution: The number of students from each major city was calculated.\nProfession: The dominant professions (e.g., Student, Working Professional) were identified.\n\nThese basic insights help characterize the sample and reveal any biases or patterns in the demographic background of the participants."
+  },
+  {
+    "objectID": "Data_analysis.html#academic-and-work-related-factors",
+    "href": "Data_analysis.html#academic-and-work-related-factors",
+    "title": "Data Analysis",
+    "section": "Academic and Work-Related Factors",
+    "text": "Academic and Work-Related Factors\nThis plot shows a positive relationship between academic pressure and depression levels. As academic pressure increases, there is a slight upward trend in depression symptoms among students.\n\n\n\n\n\n\n\n\n\nThe bar chart shows the distribution of depression cases across different CGPA groups. Students with CGPA scores (8-9) report the highest number of depression cases, suggesting a potential link between academic achievement and mental health challenges.\n\n\n\n\n\n\n\n\n\nThe bar chart shows the number of depressed students across different degree types. Students in Class 12 report the highest number of depression cases, followed by degrees like B.Ed, B.Arch, and B.Com. Higher education degrees such as PhD, MBA, and LLM show fewer depression cases, possibly due to smaller sample sizes or better coping mechanisms developed over time."
+  },
+  {
+    "objectID": "Data_analysis.html#lifestyle-factors",
+    "href": "Data_analysis.html#lifestyle-factors",
+    "title": "Data Analysis",
+    "section": "Lifestyle Factors",
+    "text": "Lifestyle Factors\nThis chart shows that people who sleep less than 5 hours have a higher percentage of depression, while as individuals’ sleep duration approaches the recommended amount, the percentage of those suffering from depression decreases.\n\n\n\n\n\n\n\n\n\nThis chart shows the percentage of students who are depressed or not within each dietary habit group: Healthy, Moderate, and Unhealthy. Each pie chart represents one group, with orange indicating Depressed and blue indicating Not Depressed. It helps highlight how depression rates vary across different eating patterns.\n\n\n\n\n\n\n\n\n\nThe analysis reveals a clear trend: students who spend more hours working or studying each day are more likely to experience depression. This suggests that excessive academic or work-related demands may contribute to increased psychological stress and reduced mental well-being. The distribution shows a higher proportion of depression cases among those who exceed typical study or work durations. These findings highlight the importance of promoting balanced schedules and encouraging self-care alongside academic or professional responsibilities."
+  },
+  {
+    "objectID": "Data_analysis.html#mental-health-risk-factors",
+    "href": "Data_analysis.html#mental-health-risk-factors",
+    "title": "Data Analysis",
+    "section": "Mental Health Risk Factors",
+    "text": "Mental Health Risk Factors\nThe analysis shows a strong link between suicidal thoughts and depression among students. A significantly higher percentage of students who reported having suicidal thoughts are also classified as depressed. In contrast, those who did not report such thoughts have a much lower prevalence of depression. This highlights the critical importance of identifying and supporting students experiencing suicidal ideation, as it is a strong indicator of underlying mental health challenges.\n\n\n\n\n\n\n\n\n\nThe chart shows a strong association between financial stress and depression among students. As financial stress levels increase from 0 to 5, the percentage of students experiencing depression rises significantly. Students reporting extreme financial stress (levels 4–5) have the highest depression rates, while those with little or no financial concerns report much lower rates. These findings emphasize the role of financial pressure as a key risk factor for student mental health."
+  },
+  {
+    "objectID": "Data_analysis.html#conclusion",
+    "href": "Data_analysis.html#conclusion",
+    "title": "Data Analysis",
+    "section": "Conclusion",
+    "text": "Conclusion\nConclusion This analysis highlights critical connections between academic, lifestyle, and mental health factors influencing depression among students. Notably, higher CGPA ranges (8-9 and 9-10) correlate with increased depression rates, with around 60% of students in these groups reporting symptoms, suggesting that academic pressure may exacerbate mental health challenges. Additionally, factors like inadequate sleep, financial stress, and suicidal thoughts significantly contribute to higher depression rates, underscoring the need for targeted interventions. These insights emphasize the importance of balanced academic demands, financial support, and mental health resources to improve student well-being."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
+  },
+  {
+    "objectID": "Sources.html",
+    "href": "Sources.html",
+    "title": "Sources",
+    "section": "",
+    "text": "This project analyzes the mental health and depression-related data of students, with a specific focus on understanding the prevalence and potential contributing factors of depression within this group. The dataset used for this analysis was sourced from Kaggle, a popular platform for data science and machine learning projects.\nThe data consists of responses from students regarding their mental health, academic experiences, social interactions, and personal well-being. It serves as a valuable resource for exploring the intersections of academic pressures, social influences, and mental health, which are crucial for understanding and addressing student depression.\nPlease note that while this dataset provides insightful information, it is important to approach the findings with the understanding that the data represents self-reported information and may not fully capture all dimensions of mental health within the student population.\nFor more details, you can access the dataset here"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Students-psychology",
+    "section": "",
+    "text": "hello hello hello"
+  }
+]

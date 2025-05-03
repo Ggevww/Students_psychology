@@ -1,0 +1,27 @@
+project:
+  type: website
+
+website:
+  title: "Students-psychology"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+        
+      - href: Data_analysis.qmd
+        text: Data Analysis
+        
+      - href: about.qmd
+        text: About
+        
+      - href: Sources.qmd
+        text: Sources
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+
+

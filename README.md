@@ -1,1 +1,1 @@
-# Students_psychology
+# Students-psychology

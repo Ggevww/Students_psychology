@@ -1,0 +1,5 @@
+---
+title: "About"
+---
+
+This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone.
