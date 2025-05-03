@@ -18,7 +18,7 @@
     "href": "Data_analysis.html#demographic-analysis",
     "title": "Data Analysis",
     "section": "Demographic Analysis",
-    "text": "Demographic Analysis\nUnderstanding the demographic distribution of the students provides valuable context for interpreting the results of the study. The following aspects were analyzed:\n\nGender Distribution: The proportion of male and female students was examined.\nAge Distribution: The age range and average age of the students were explored.\nCity Distribution: The number of students from each major city was calculated.\nProfession: The dominant professions (e.g., Student, Working Professional) were identified.\n\nThese basic insights help characterize the sample and reveal any biases or patterns in the demographic background of the participants."
+    "text": "Demographic Analysis\nUnderstanding the demographic distribution of the students provides valuable context for interpreting the results of the study. The following aspects were analyzed:\n\nGender Distribution: The proportion of male and female students was examined.\nAge Distribution: The age range and average age of the students were explored.\nCity Distribution: The number of students from each major city was calculated.\n\nThese basic insights help characterize the sample and reveal any biases or patterns in the demographic background of the participants."
   },
   {
     "objectID": "Data_analysis.html#academic-and-work-related-factors",
@@ -61,5 +61,12 @@
     "title": "About",
     "section": "",
     "text": "This data analysis project focuses on the depression levels among students, a critical issue that affects many in educational settings. As a future student myself, I recognize how important it is to address mental health, particularly depression, which can significantly impact academic performance, well-being, and overall quality of life. By analyzing various data points related to student experiences, I aim to uncover patterns and provide insights that could help raise awareness and contribute to finding solutions to this growing problem. Understanding the factors contributing to student depression is a step towards creating a more supportive and healthier learning environment for everyone."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Students-psychology",
+    "section": "",
+    "text": "Attaching package: 'dplyr'\n\n\nThe following objects are masked from 'package:stats':\n\n    filter, lag\n\n\nThe following objects are masked from 'package:base':\n\n    intersect, setdiff, setequal, union\n\n\n\n\n\n\n\n\nFigure 1"
   }
 ]

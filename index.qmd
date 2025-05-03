@@ -1,5 +1,58 @@
 ---
 title: "Students-psychology"
+format:
+  html:
+    echo: false
+    
 ---
+
+```{r}
+#| fig-width: 14
+#| fig-height: 12
+#| fig-align: 'center'
+#| warning: false
+#| message: false
+
+
+# Load libraries
+library(ggplot2)
+library(ggcorrplot)
+library(dplyr)
+library(readr)
+data <- read.csv(("data/student_depression.csv"))
+# Data preparation
+df <- data %>%
+  mutate(
+    Gender = as.numeric(factor(Gender)),
+    City = as.numeric(factor(City)),
+    Profession = as.numeric(factor(Profession)),
+    Dietary.Habits = as.numeric(factor(Dietary.Habits)),
+    Degree = as.numeric(factor(Degree)),
+    Suicidal_Thoughts = as.numeric(factor(Have.you.ever.had.suicidal.thoughts..)),
+    Financial.Stress = as.numeric(factor(Financial.Stress)),
+    Family.History = as.numeric(factor(Family.History.of.Mental.Illness)),
+    Sleep.Duration = as.numeric(factor(Sleep.Duration))
+  ) %>%
+  select_if(is.numeric)
+
+# Calculate correlation matrix
+cor_matrix <- cor(df, use = "complete.obs")
+
+# Create the heatmap
+ggcorrplot(cor_matrix,
+           hc.order = TRUE,
+           type = "lower",
+           lab = TRUE,
+           lab_size = 4.5,
+           method = "square",
+           colors = c("#6D9EC1", "white", "#E46726"),
+           tl.cex = 14,  # Text label size
+           ggtheme = theme_minimal(base_size = 14)) +
+  theme(plot.title = element_text(size = 18, face = "bold"),
+        legend.text = element_text(size = 12),
+        axis.text.x = element_text(size = 11, angle = 45, hjust = 1, vjust = 1),
+        axis.text.y = element_text(size = 11),
+        plot.margin = margin(1, 1, 1, 1, "cm"))
+```
 
 
