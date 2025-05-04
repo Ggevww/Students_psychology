@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Data Analysis – Students-psychology</title>
+<title>Data Analysis – Exploring Students Mental Health</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -81,7 +81,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="./index.html">
-    <span class="navbar-title">Students-psychology</span>
+    <span class="navbar-title">Exploring Students Mental Health</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -124,10 +124,34 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#demographic-analysis" id="toc-demographic-analysis" class="nav-link" data-scroll-target="#demographic-analysis">Demographic Analysis</a></li>
-  <li><a href="#academic-and-work-related-factors" id="toc-academic-and-work-related-factors" class="nav-link" data-scroll-target="#academic-and-work-related-factors">Academic and Work-Related Factors</a></li>
-  <li><a href="#lifestyle-factors" id="toc-lifestyle-factors" class="nav-link" data-scroll-target="#lifestyle-factors">Lifestyle Factors</a></li>
-  <li><a href="#mental-health-risk-factors" id="toc-mental-health-risk-factors" class="nav-link" data-scroll-target="#mental-health-risk-factors">Mental Health Risk Factors</a></li>
+  <li><a href="#demographic-analysis" id="toc-demographic-analysis" class="nav-link" data-scroll-target="#demographic-analysis">Demographic Analysis</a>
+  <ul class="collapse">
+  <li><a href="#gender-distribution" id="toc-gender-distribution" class="nav-link" data-scroll-target="#gender-distribution">Gender Distribution</a></li>
+  <li><a href="#age-distribution" id="toc-age-distribution" class="nav-link" data-scroll-target="#age-distribution">Age Distribution</a></li>
+  <li><a href="#city-distribution" id="toc-city-distribution" class="nav-link" data-scroll-target="#city-distribution">City Distribution</a></li>
+  </ul></li>
+  <li><a href="#depression-analysis" id="toc-depression-analysis" class="nav-link" data-scroll-target="#depression-analysis">Depression Analysis</a>
+  <ul class="collapse">
+  <li><a href="#depression-by-age" id="toc-depression-by-age" class="nav-link" data-scroll-target="#depression-by-age">Depression by Age</a></li>
+  <li><a href="#depression-by-gender" id="toc-depression-by-gender" class="nav-link" data-scroll-target="#depression-by-gender">Depression by Gender</a></li>
+  </ul></li>
+  <li><a href="#academic-and-work-related-factors" id="toc-academic-and-work-related-factors" class="nav-link" data-scroll-target="#academic-and-work-related-factors">Academic and Work-Related Factors</a>
+  <ul class="collapse">
+  <li><a href="#academic-pressure-vs-depression" id="toc-academic-pressure-vs-depression" class="nav-link" data-scroll-target="#academic-pressure-vs-depression">Academic Pressure vs Depression</a></li>
+  <li><a href="#depression-by-cgpa" id="toc-depression-by-cgpa" class="nav-link" data-scroll-target="#depression-by-cgpa">Depression by CGPA</a></li>
+  <li><a href="#depression-by-degree-type" id="toc-depression-by-degree-type" class="nav-link" data-scroll-target="#depression-by-degree-type">Depression by Degree Type</a></li>
+  </ul></li>
+  <li><a href="#lifestyle-factors" id="toc-lifestyle-factors" class="nav-link" data-scroll-target="#lifestyle-factors">Lifestyle Factors</a>
+  <ul class="collapse">
+  <li><a href="#depression-by-sleep-duration" id="toc-depression-by-sleep-duration" class="nav-link" data-scroll-target="#depression-by-sleep-duration">Depression by Sleep Duration</a></li>
+  <li><a href="#depression-by-dietary-habits" id="toc-depression-by-dietary-habits" class="nav-link" data-scroll-target="#depression-by-dietary-habits">Depression by Dietary Habits</a></li>
+  <li><a href="#depression-by-workstudy-hours" id="toc-depression-by-workstudy-hours" class="nav-link" data-scroll-target="#depression-by-workstudy-hours">Depression by Work/Study Hours</a></li>
+  </ul></li>
+  <li><a href="#mental-health-risk-factors" id="toc-mental-health-risk-factors" class="nav-link" data-scroll-target="#mental-health-risk-factors">Mental Health Risk Factors</a>
+  <ul class="collapse">
+  <li><a href="#depression-by-suicidal-thoughts" id="toc-depression-by-suicidal-thoughts" class="nav-link" data-scroll-target="#depression-by-suicidal-thoughts">Depression by Suicidal Thoughts</a></li>
+  <li><a href="#depression-by-financial-stress" id="toc-depression-by-financial-stress" class="nav-link" data-scroll-target="#depression-by-financial-stress">Depression by Financial Stress</a></li>
+  </ul></li>
   <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
   </ul>
 </nav>
@@ -156,153 +180,202 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level2">
 <h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
-<p>In today’s fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.</p>
+<p>In today’s fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of Indian students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.</p>
 <p>The primary goal of this analysis is to understand how various personal, academic, and lifestyle factors contribute to depression among students. By exploring relationships between variables such as sleep duration, CGPA, financial stress, and suicidal thoughts, we aim to identify key areas that may require attention for mental health support and intervention programs.</p>
-<p>Through a combination of descriptive statistics, visual exploration, and correlation analysis, this study provides insights that can help educators, counselors, and policymakers develop better strategies to support student mental health and well-being.</p>
+<p>Through a combination of descriptive statistics, visual exploration, and correlation analysis, this study provides insights that can help educators, counselors, and policymakers develop better strategies to support student mental health and well-being. ## Load Libraries and Data</p>
 </section>
 <section id="demographic-analysis" class="level2">
 <h2 class="anchored" data-anchor-id="demographic-analysis">Demographic Analysis</h2>
 <p>Understanding the demographic distribution of the students provides valuable context for interpreting the results of the study. The following aspects were analyzed:</p>
 <ul>
-<li><strong>Gender Distribution:</strong> The proportion of male and female students was examined.</li>
-<li><strong>Age Distribution:</strong> The age range and average age of the students were explored.</li>
-<li><strong>City Distribution:</strong> The number of students from each major city was calculated.</li>
+<li><strong>Gender Distribution</strong>: The proportion of male and female students was examined.</li>
+<li><strong>Age Distribution</strong>: The age range and average age of the students were explored.</li>
+<li><strong>City Distribution</strong>: The number of students from each major city was calculated.</li>
 </ul>
 <p>These basic insights help characterize the sample and reveal any biases or patterns in the demographic background of the participants.</p>
+<section id="gender-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="gender-distribution">Gender Distribution</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-4-2.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-4-3.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="1536"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="768"></p>
+<p><img src="Data_analysis_files/figure-html/gender-distribution-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="academic-and-work-related-factors" class="level2">
-<h2 class="anchored" data-anchor-id="academic-and-work-related-factors">Academic and Work-Related Factors</h2>
-<p>This plot shows a positive relationship between academic pressure and depression levels. As academic pressure increases, there is a slight upward trend in depression symptoms among students.</p>
+<section id="age-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="age-distribution">Age Distribution</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/age-distribution-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="city-distribution" class="level3">
+<h3 class="anchored" data-anchor-id="city-distribution">City Distribution</h3>
+<p>Here were some issues here because the cities in the dataset were incorrect, and when trying to create a graph, problems arose. I had to create a list of valid cities and correct the dataset.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_analysis_files/figure-html/city-distribution-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="depression-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="depression-analysis">Depression Analysis</h2>
+<section id="depression-by-age" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-age">Depression by Age</h3>
+<p>This plot shows the density of depression status across different age groups, highlighting how depression prevalence varies with age.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_analysis_files/figure-html/depression-age-1.png" class="img-fluid figure-img" width="1536"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="depression-by-gender" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-gender">Depression by Gender</h3>
+<p>This plot illustrates the prevalence of depression across genders, expressed as percentages.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_analysis_files/figure-html/depression-gender-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="academic-and-work-related-factors" class="level2">
+<h2 class="anchored" data-anchor-id="academic-and-work-related-factors">Academic and Work-Related Factors</h2>
+<p>This plot shows a positive relationship between academic pressure and depression levels. As academic pressure increases, there is a slight upward trend in depression symptoms among students.</p>
+<section id="academic-pressure-vs-depression" class="level3">
+<h3 class="anchored" data-anchor-id="academic-pressure-vs-depression">Academic Pressure vs Depression</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="Data_analysis_files/figure-html/academic-pressure-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The bar chart shows the distribution of depression cases across different CGPA groups. Students with CGPA scores (8-9) report the highest number of depression cases, suggesting a potential link between academic achievement and mental health challenges.</p>
+</section>
+<section id="depression-by-cgpa" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-cgpa">Depression by CGPA</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-cgpa-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The bar chart shows the number of depressed students across different degree types. Students in Class 12 report the highest number of depression cases, followed by degrees like B.Ed, B.Arch, and B.Com. Higher education degrees such as PhD, MBA, and LLM show fewer depression cases, possibly due to smaller sample sizes or better coping mechanisms developed over time.</p>
+</section>
+<section id="depression-by-degree-type" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-degree-type">Depression by Degree Type</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-degree-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
+</section>
 <section id="lifestyle-factors" class="level2">
 <h2 class="anchored" data-anchor-id="lifestyle-factors">Lifestyle Factors</h2>
 <p>This chart shows that people who sleep less than 5 hours have a higher percentage of depression, while as individuals’ sleep duration approaches the recommended amount, the percentage of those suffering from depression decreases.</p>
+<section id="depression-by-sleep-duration" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-sleep-duration">Depression by Sleep Duration</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-sleep-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>This chart shows the percentage of students who are depressed or not within each dietary habit group: Healthy, Moderate, and Unhealthy. Each pie chart represents one group, with orange indicating Depressed and blue indicating Not Depressed. It helps highlight how depression rates vary across different eating patterns.</p>
+</section>
+<section id="depression-by-dietary-habits" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-dietary-habits">Depression by Dietary Habits</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-diet-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The analysis reveals a clear trend: students who spend more hours working or studying each day are more likely to experience depression. This suggests that excessive academic or work-related demands may contribute to increased psychological stress and reduced mental well-being. The distribution shows a higher proportion of depression cases among those who exceed typical study or work durations. These findings highlight the importance of promoting balanced schedules and encouraging self-care alongside academic or professional responsibilities.</p>
+</section>
+<section id="depression-by-workstudy-hours" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-workstudy-hours">Depression by Work/Study Hours</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-work-study-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
+</section>
 <section id="mental-health-risk-factors" class="level2">
 <h2 class="anchored" data-anchor-id="mental-health-risk-factors">Mental Health Risk Factors</h2>
 <p>The analysis shows a strong link between suicidal thoughts and depression among students. A significantly higher percentage of students who reported having suicidal thoughts are also classified as depressed. In contrast, those who did not report such thoughts have a much lower prevalence of depression. This highlights the critical importance of identifying and supporting students experiencing suicidal ideation, as it is a strong indicator of underlying mental health challenges.</p>
+<section id="depression-by-suicidal-thoughts" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-suicidal-thoughts">Depression by Suicidal Thoughts</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-suicidal-thoughts-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>The chart shows a strong association between financial stress and depression among students. As financial stress levels increase from 0 to 5, the percentage of students experiencing depression rises significantly. Students reporting extreme financial stress (levels 4–5) have the highest depression rates, while those with little or no financial concerns report much lower rates. These findings emphasize the role of financial pressure as a key risk factor for student mental health.</p>
+</section>
+<section id="depression-by-financial-stress" class="level3">
+<h3 class="anchored" data-anchor-id="depression-by-financial-stress">Depression by Financial Stress</h3>
 <div class="cell">
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="Data_analysis_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="Data_analysis_files/figure-html/depression-financial-stress-1.png" class="img-fluid figure-img" width="768"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
+</section>
 <section id="conclusion" class="level2">
 <h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
-<p>Conclusion This analysis highlights critical connections between academic, lifestyle, and mental health factors influencing depression among students. Notably, higher CGPA ranges (8-9 and 9-10) correlate with increased depression rates, with around 60% of students in these groups reporting symptoms, suggesting that academic pressure may exacerbate mental health challenges. Additionally, factors like inadequate sleep, financial stress, and suicidal thoughts significantly contribute to higher depression rates, underscoring the need for targeted interventions. These insights emphasize the importance of balanced academic demands, financial support, and mental health resources to improve student well-being.</p>
+<p>This analysis highlights critical connections between academic, lifestyle, and mental health factors influencing depression among students. Notably, higher CGPA ranges (8-9 and 9-10) correlate with increased depression rates, with around 60% of students in these groups reporting symptoms, suggesting that academic pressure may exacerbate mental health challenges. Additionally, factors like inadequate sleep, financial stress, and suicidal thoughts significantly contribute to higher depression rates, underscoring the need for targeted interventions. These insights emphasize the importance of balanced academic demands, financial support, and mental health resources to improve student well-being.</p>
 
 
 </section>

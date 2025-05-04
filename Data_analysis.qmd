@@ -10,28 +10,34 @@ format:
 
 ## Introduction
 
-In today's fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.
+In today's fast-paced academic environment, mental health issues such as depression have become increasingly prevalent among students. This project focuses on analyzing a large dataset of Indian students to uncover patterns and factors associated with depression levels. The dataset contains information on demographics, academic pressure, work pressure, sleep habits, dietary practices, financial stress, satisfaction with study and work, and family history of mental illness.
 
 The primary goal of this analysis is to understand how various personal, academic, and lifestyle factors contribute to depression among students. By exploring relationships between variables such as sleep duration, CGPA, financial stress, and suicidal thoughts, we aim to identify key areas that may require attention for mental health support and intervention programs.
 
 Through a combination of descriptive statistics, visual exploration, and correlation analysis, this study provides insights that can help educators, counselors, and policymakers develop better strategies to support student mental health and well-being.
+## Load Libraries and Data
+
 ```{r}
+#| label: load-libraries
 #| message: false
+#| warning: false
 library(tidyverse)
 library(readr)
+library(dplyr)
+library(tibble)
+library(ggplot2)
+library(ggpubr)
+library(scales)
+library(stringr)
 ```
 
 ```{r}
+#| label: load-data
+#| message: false
 depstud <- read_csv(
   file = "data/student_depression.csv",
   col_types = cols(.default = col_character())
 )
-```
-
-```{r}
-library(dplyr)
-library(tibble)
-library(ggplot2)
 
 valid_cities <- c(
   "Visakhapatnam", "Bangalore", "Srinagar", "Varanasi", "Jaipur", "Pune",
@@ -49,107 +55,168 @@ city_country_map <- tibble(
 depstud_cleaned <- depstud %>%
   filter(City %in% valid_cities) %>%
   left_join(city_country_map, by = "City")
-
 ```
 
 ## Demographic Analysis
 
 Understanding the demographic distribution of the students provides valuable context for interpreting the results of the study. The following aspects were analyzed:
 
-- **Gender Distribution:** The proportion of male and female students was examined.
-- **Age Distribution:** The age range and average age of the students were explored.
-- **City Distribution:** The number of students from each major city was calculated.
+- **Gender Distribution**: The proportion of male and female students was examined.
+- **Age Distribution**: The age range and average age of the students were explored.
+- **City Distribution**: The number of students from each major city was calculated.
 
 These basic insights help characterize the sample and reveal any biases or patterns in the demographic background of the participants.
 
+### Gender Distribution
+
 ```{r}
-# Gender Distribution
+#| label: gender-distribution
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   count(Gender) %>%
   ggplot(aes(x = Gender, y = n, fill = Gender)) +
-  geom_col() +
-  labs(title = "Gender Distribution", x = "Gender", y = "Count") +
-  theme_minimal()
+  geom_col(show.legend = FALSE) +
+  labs(
+    title = "Gender Distribution",
+    x = "Gender",
+    y = "Count"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+```
 
-# Age Distribution
+### Age Distribution
+
+```{r}
+#| label: age-distribution
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   mutate(Age = as.numeric(Age)) %>%
   ggplot(aes(x = Age)) +
   geom_histogram(binwidth = 2, fill = "#69b3a2", color = "black") +
-  labs(title = "Age Distribution of Students", x = "Age", y = "Frequency") +
-  theme_minimal()
+  labs(
+    title = "Age Distribution of Students",
+    x = "Age",
+    y = "Frequency"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
+```
 
-# City Distribution (Top 10 Cities)
+### City Distribution
+Here were some issues here because the cities in the dataset were incorrect, and when trying to create a graph, problems arose. I had to create a list of valid cities and correct the dataset.
+```{r}
+#| label: city-distribution
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   count(City, sort = TRUE) %>%
   slice_head(n = 10) %>%
   ggplot(aes(x = reorder(City, n), y = n, fill = City)) +
   geom_col(show.legend = FALSE) +
   coord_flip() +
-  labs(title = "Top 10 Cities Represented", x = "City", y = "Number of Students") +
-  theme_minimal()
-
+  labs(
+    title = "Top 10 Cities Represented",
+    x = "City",
+    y = "Number of Students"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
 ```
+
+## Depression Analysis
+
+### Depression by Age
+
+This plot shows the density of depression status across different age groups, highlighting how depression prevalence varies with age.
+
 ```{r}
-#| message: false
-#| warning: false
+#| label: depression-age
 #| fig-width: 16
 #| fig-height: 10
-library(ggpubr)
-
-# Convert Depression to factor for better visualization
+#| warning: false
 plot_data <- depstud_cleaned %>%
+  filter(Age < 35) %>%
   mutate(Depression = factor(Depression, levels = c(0, 1), labels = c("No Depression", "Depression")))
 
-# Create plot
 ggplot(plot_data, aes(x = Age, fill = Depression)) +
-  geom_density(alpha = 0.6) +
+  geom_density(alpha = 0.5) +
   scale_fill_manual(values = c("#4E79A7", "#E15759")) +
-  labs(title = "Depression Distribution by Age",
-       x = "Age",
-       y = "Density",
-       fill = "Depression Status") +
+  labs(
+    title = "Depression Distribution by Age (Under 35)",
+    x = "Age",
+    y = "Density",
+    fill = "Depression Status"
+  ) +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "top",
-        plot.title = element_text(size = 16, face = "bold"))
+  theme(
+    legend.position = "top",
+    legend.text = element_text(size = 16), 
+    legend.title = element_text(size = 18), 
+    legend.key.size = unit(2, "cm"),
+    plot.title = element_text(face = "bold", hjust = 0.5, size = 30) # Increased title size
+  )
 ```
 
+### Depression by Gender
+
+This plot illustrates the prevalence of depression across genders, expressed as percentages.
+
 ```{r}
+#| label: depression-gender
 #| fig-width: 8
 #| fig-height: 6
-
-# Prepare data for gender plot
 gender_data <- depstud_cleaned %>%
-  mutate(Depression = factor(Depression, levels = c(0, 1), labels = c("No", "Yes")),
-         Gender = factor(Gender)) %>%
+  mutate(
+    Depression = factor(Depression, levels = c(0, 1), labels = c("No", "Yes")),
+    Gender = factor(Gender)
+  ) %>%
   count(Gender, Depression) %>%
   group_by(Gender) %>%
   mutate(Percentage = n / sum(n) * 100)
 
-# Create plot
 ggplot(gender_data, aes(x = Gender, y = Percentage, fill = Depression)) +
   geom_bar(stat = "identity", position = "dodge") +
   geom_text(aes(label = paste0(round(Percentage, 1), "%")), 
             position = position_dodge(width = 0.9), vjust = -0.5, size = 4) +
   scale_fill_manual(values = c("#59A14F", "#F28E2B")) +
-  labs(title = "Depression Prevalence by Gender",
-       x = "Gender",
-       y = "Percentage (%)",
-       fill = "Depression") +
+  labs(
+    title = "Depression Prevalence by Gender",
+    x = "Gender",
+    y = "Percentage (%)",
+    fill = "Depression Status"
+  ) +
   ylim(0, 100) +
   theme_minimal(base_size = 14) +
-  theme(legend.position = "top",
-        plot.title = element_text(size = 16, face = "bold"))
+  theme(
+    legend.position = "top",
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
 ```
 
 ## Academic and Work-Related Factors
+
 This plot shows a positive relationship between academic pressure and depression levels. As academic pressure increases, there is a slight upward trend in depression symptoms among students.
 
+### Academic Pressure vs Depression
+
 ```{r}
-#| message: false
+#| label: academic-pressure
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
-  mutate(`Academic Pressure` = as.numeric(`Academic Pressure`),
-         Depression = as.numeric(Depression)) %>%
+  mutate(
+    `Academic Pressure` = as.numeric(`Academic Pressure`),
+    Depression = as.numeric(Depression)
+  ) %>%
   ggplot(aes(x = `Academic Pressure`, y = Depression)) +
   geom_jitter(width = 0.2, height = 0.3, alpha = 0.5, color = "#1f77b4") +
   labs(
@@ -157,37 +224,34 @@ depstud_cleaned %>%
     x = "Academic Pressure (Scale 0-5)",
     y = "Depression Level"
   ) +
-  theme_minimal()
-
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
 ```
+
 The bar chart shows the distribution of depression cases across different CGPA groups. Students with CGPA scores (8-9) report the highest number of depression cases, suggesting a potential link between academic achievement and mental health challenges.
+
+### Depression by CGPA
+
 ```{r}
-#| message: FALSE
-library(scales)
-
-# Load the dataset (adjust the file path as needed)
-data <- read.csv("data/student_depression.csv")
-
-# Create CGPA groups by binning the CGPA column
-data <- data %>%
-  mutate(CGPA_Group = cut(CGPA, 
+#| label: depression-cgpa
+#| fig-width: 8
+#| fig-height: 6
+prop_df <- depstud_cleaned %>%
+  mutate(CGPA_Group = cut(as.numeric(CGPA), 
                           breaks = c(0, 6, 7, 8, 9, 10), 
                           labels = c("<6", "6-7", "7-8", "8-9", "9-10"),
-                          include.lowest = TRUE))
-
-# Create proportion dataframe
-prop_df <- data %>%
+                          include.lowest = TRUE)) %>%
   group_by(CGPA_Group, Depression) %>%
   summarise(Count = n(), .groups = "drop") %>%
   group_by(CGPA_Group) %>%
   mutate(Proportion = Count / sum(Count)) %>%
-  filter(Depression == 1)
+  filter(Depression == "1")
 
-# Ensure CGPA_Group is ordered for proper plotting
 prop_df$CGPA_Group <- factor(prop_df$CGPA_Group, 
                              levels = c("<6", "6-7", "7-8", "8-9", "9-10"))
 
-# Plot the proportion of depressed students per CGPA group
 ggplot(prop_df, aes(x = CGPA_Group, y = Proportion, fill = CGPA_Group)) +
   geom_bar(stat = "identity") +
   labs(
@@ -196,27 +260,30 @@ ggplot(prop_df, aes(x = CGPA_Group, y = Proportion, fill = CGPA_Group)) +
     y = "Proportion of Depressed Students"
   ) +
   scale_y_continuous(labels = percent_format(scale = 100)) +
-  scale_fill_brewer(palette = "Blues") +  # Use a color palette for better visuals
-  theme_minimal() +
+  scale_fill_brewer(palette = "Blues") +
+  theme_minimal(base_size = 14) +
   theme(
-    legend.position = "none",  # Remove legend since fill is based on x-axis
-    plot.title = element_text(hjust = 0.5, size = 14, face = "bold"),
-    axis.text.x = element_text(angle = 45, hjust = 1),
-    axis.title = element_text(size = 12)
+    legend.position = "none",
+    plot.title = element_text(face = "bold", hjust = 0.5),
+    axis.text.x = element_text(angle = 45, hjust = 1)
   )
 ```
-The bar chart shows the number of depressed students across different degree types.
-Students in Class 12 report the highest number of depression cases, followed by degrees like B.Ed, B.Arch, and B.Com.
-Higher education degrees such as PhD, MBA, and LLM show fewer depression cases, possibly due to smaller sample sizes or better coping mechanisms developed over time.
+
+The bar chart shows the number of depressed students across different degree types. Students in Class 12 report the highest number of depression cases, followed by degrees like B.Ed, B.Arch, and B.Com. Higher education degrees such as PhD, MBA, and LLM show fewer depression cases, possibly due to smaller sample sizes or better coping mechanisms developed over time.
+
+### Depression by Degree Type
+
 ```{r}
-# Make sure CGPA and Depression are properly numeric/character first
+#| label: depression-degree
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   filter(!is.na(Degree), !is.na(Depression)) %>%
   mutate(Depression = as.character(Depression)) %>%
-  filter(Depression == 1) %>%  # Only depressed students
+  filter(Depression == "1") %>%
   group_by(Degree) %>%
   summarise(Depressed_Count = n(), .groups = "drop") %>%
-  ggplot(aes(x = reorder(Degree, -Depressed_Count), y = Depressed_Count, fill = Degree)) +
+  ggplot(aes(y = reorder(Degree, -Depressed_Count), x = Depressed_Count, fill = Degree)) +
   geom_col(width = 0.6, show.legend = FALSE) +
   labs(
     title = "Number of Depressed Students by Degree Type",
@@ -228,11 +295,18 @@ depstud_cleaned %>%
     plot.title = element_text(face = "bold", hjust = 0.5),
     axis.text.x = element_text(angle = 30, hjust = 1)
   )
-
 ```
+
 ## Lifestyle Factors
+
 This chart shows that people who sleep less than 5 hours have a higher percentage of depression, while as individuals' sleep duration approaches the recommended amount, the percentage of those suffering from depression decreases.
+
+### Depression by Sleep Duration
+
 ```{r}
+#| label: depression-sleep
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   mutate(
     `Sleep Duration` = gsub("'", "", `Sleep Duration`),
@@ -242,11 +316,11 @@ depstud_cleaned %>%
     Depressed = ifelse(Depression == 1, "Depressed", "Not Depressed")
   ) %>%
   filter(!is.na(`Sleep Duration`), !is.na(Depressed)) %>%
-  count(`Sleep Duration`, Depressed) %>%  # Count occurrences for each combination
-  group_by(`Sleep Duration`) %>%  # Group by `Sleep Duration` to calculate percentages
-  mutate(percentage = n / sum(n)) %>%  # Calculate percentage for each group
+  count(`Sleep Duration`, Depressed) %>%
+  group_by(`Sleep Duration`) %>%
+  mutate(percentage = n / sum(n)) %>%
   ggplot(aes(x = `Sleep Duration`, y = percentage, fill = Depressed)) +
-  geom_bar(stat = "identity", position = "stack") +  # Use stat = "identity" for pre-calculated percentages
+  geom_bar(stat = "identity", position = "stack") +
   scale_fill_manual(values = c("Depressed" = "#d62728", "Not Depressed" = "#2ca02c")) +
   labs(
     title = "Depression Status by Sleep Duration",
@@ -254,30 +328,32 @@ depstud_cleaned %>%
     y = "Percentage of Students",
     fill = "Depression Status"
   ) +
-  theme_minimal() +
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  ) +
   geom_text(
     aes(label = scales::percent(percentage)),
     position = position_stack(vjust = 0.5),
     color = "white"
   )
-
-
-
-
 ```
-This chart shows the percentage of students who are depressed or not within each dietary habit group: Healthy, Moderate, and Unhealthy. Each pie chart represents one group, with orange indicating Depressed and blue indicating Not Depressed. It helps highlight how depression rates vary across different eating patterns.
-```{r}
-library(stringr)
 
-# Define valid levels explicitly
+This chart shows the percentage of students who are depressed or not within each dietary habit group: Healthy, Moderate, and Unhealthy. Each pie chart represents one group, with orange indicating Depressed and blue indicating Not Depressed. It helps highlight how depression rates vary across different eating patterns.
+
+### Depression by Dietary Habits
+
+```{r}
+#| label: depression-diet
+#| fig-width: 8
+#| fig-height: 6
 valid_dietary_levels <- c("Healthy", "Moderate", "Unhealthy")
 
 dep_summary <- depstud_cleaned %>%
-  # Remove rows with NA or unexpected values in either variable
   filter(
     !is.na(Depression),
     !is.na(`Dietary Habits`),
-    `Dietary Habits` %in% valid_dietary_levels  # Keep only standard answers
+    `Dietary Habits` %in% valid_dietary_levels
   ) %>%
   mutate(
     Depression = as.integer(as.character(Depression)),
@@ -292,7 +368,6 @@ dep_summary <- depstud_cleaned %>%
   ) %>%
   ungroup()
 
-# Plot
 ggplot(dep_summary, aes(x = "", y = percent, fill = Depressed)) +
   geom_bar(stat = "identity", position = "stack", width = 1) +
   geom_text(
@@ -316,10 +391,16 @@ ggplot(dep_summary, aes(x = "", y = percent, fill = Depressed)) +
     axis.ticks = element_blank(),
     strip.text = element_text(face = "bold")
   )
-
 ```
+
 The analysis reveals a clear trend: students who spend more hours working or studying each day are more likely to experience depression. This suggests that excessive academic or work-related demands may contribute to increased psychological stress and reduced mental well-being. The distribution shows a higher proportion of depression cases among those who exceed typical study or work durations. These findings highlight the importance of promoting balanced schedules and encouraging self-care alongside academic or professional responsibilities.
+
+### Depression by Work/Study Hours
+
 ```{r}
+#| label: depression-work-study
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   mutate(
     `Work/Study Hours` = as.numeric(`Work/Study Hours`),
@@ -336,14 +417,22 @@ depstud_cleaned %>%
     y = "Proportion of Students",
     fill = "Depression Status"
   ) +
-  theme_minimal()
-
-
+  theme_minimal(base_size = 14) +
+  theme(
+    plot.title = element_text(face = "bold", hjust = 0.5)
+  )
 ```
+
 ## Mental Health Risk Factors
+
 The analysis shows a strong link between suicidal thoughts and depression among students. A significantly higher percentage of students who reported having suicidal thoughts are also classified as depressed. In contrast, those who did not report such thoughts have a much lower prevalence of depression. This highlights the critical importance of identifying and supporting students experiencing suicidal ideation, as it is a strong indicator of underlying mental health challenges.
+
+### Depression by Suicidal Thoughts
+
 ```{r}
-# Suicidal Thoughts vs. Depression with updated colors
+#| label: depression-suicidal-thoughts
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
   mutate(
     Depression = as.integer(as.character(Depression)),
@@ -373,14 +462,18 @@ depstud_cleaned %>%
   theme(
     plot.title = element_text(face = "bold", hjust = 0.5)
   )
-
+  
 ```
-The chart shows a strong association between financial stress and depression among students. As financial stress levels increase from 0 to 5, the percentage of students experiencing depression rises significantly. Students reporting extreme financial stress (levels 4–5) have the highest depression rates, while those with little or no financial concerns report much lower rates. These findings emphasize the role of financial pressure as a key risk factor for student mental health.
-```{r}
-library(readr)
 
+The chart shows a strong association between financial stress and depression among students. As financial stress levels increase from 0 to 5, the percentage of students experiencing depression rises significantly. Students reporting extreme financial stress (levels 4–5) have the highest depression rates, while those with little or no financial concerns report much lower rates. These findings emphasize the role of financial pressure as a key risk factor for student mental health.
+
+### Depression by Financial Stress
+
+```{r}
+#| label: depression-financial-stress
+#| fig-width: 8
+#| fig-height: 6
 depstud_cleaned %>%
-  # Remove rows with clearly non-numeric or unknown entries
   filter(!`Financial Stress` %in% c("?", "", "NA", "na", "n/a", "NaN")) %>%
   mutate(
     `Financial Stress` = as.numeric(`Financial Stress`),
@@ -413,9 +506,10 @@ depstud_cleaned %>%
 
 ```
 
+
 ## Conclusion
 
-Conclusion
+
 This analysis highlights critical connections between academic, lifestyle, and mental health factors influencing depression among students. Notably, higher CGPA ranges (8-9 and 9-10) correlate with increased depression rates, with around 60% of students in these groups reporting symptoms, suggesting that academic pressure may exacerbate mental health challenges. Additionally, factors like inadequate sleep, financial stress, and suicidal thoughts significantly contribute to higher depression rates, underscoring the need for targeted interventions. These insights emphasize the importance of balanced academic demands, financial support, and mental health resources to improve student well-being. 
 
 
